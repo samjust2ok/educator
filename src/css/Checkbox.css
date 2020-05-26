@@ -1,0 +1,6 @@
+.Container {
+    width:15px;
+    height: 15px;
+    border-radius: 1px;
+    flex-grow:0;
+}

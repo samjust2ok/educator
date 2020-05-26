@@ -1,0 +1,19 @@
+.NotificationWidget{
+    padding: 10px 20px;
+    background-color: #1e242b;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.NotificationWidget p{
+    color: white;
+    font-size: 1.25rem;
+    /* text-transform: lowercase; */
+}
+
+.NotificationWidget i{
+    color: white;
+    margin-right: 20px;
+    cursor: pointer;
+}

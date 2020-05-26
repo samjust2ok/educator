@@ -1,0 +1,39 @@
+.Logo-Container{
+    padding: 0 40px;
+    height: 100%;
+}
+
+.Logo{
+    display: flex;
+    font-size: 1.5rem;
+}
+
+.Logo > .Display{
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background-color: #1DBF73;
+    margin-right: 10px;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Logo > .Display h1{
+    font-weight: 400;
+}
+
+.Logo > .Name{
+    font-weight: 500;
+    color: black;
+
+} 
+
+
+@media screen and (max-width : 1024px) {
+    .Logo-Container{
+        padding:0 30px;
+    }
+}

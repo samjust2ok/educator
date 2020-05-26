@@ -1,0 +1,44 @@
+.Tag{
+    border-radius: 30px;
+    padding:5px 10px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    transition: all 200ms ease-in-out;
+}
+
+.Tag[selector = true] {
+    background-color: #c7cde0;
+    cursor: pointer;
+}
+
+.Tag[selector =  false]{
+    background-color: #1ed47c;
+}
+
+.Tag:hover{
+    transform: translateY(5px);
+}
+.Tag[selector = true]:hover {
+    background-color: #2b2d35;
+}
+
+.Tag[selector =  false]:hover{
+    background-color: #36ba7a;
+}
+
+.Tag p{
+   color: white; 
+   font-size: 1.3rem;
+}
+
+.Tag i{
+    color: white;
+    font-size: 16px;
+}
+
+.Tag[selector =  false] i{
+    cursor: pointer;
+}

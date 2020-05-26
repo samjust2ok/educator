@@ -1,0 +1,273 @@
+.AddStaff{
+    overflow: hidden;
+    box-shadow: inset 0px 0px 0px rgba(255,255,255,0), inset 10px 0px 20px rgba(255,255,255,1), inset 0px 0px 10px rgba(255,255,255,0), inset 0px 10px 20px rgba(255,255,255,1);
+    height: 100%;
+}
+
+.AddStaff .Form{
+    width:100%;
+    display: flex;
+    width: 800px;
+    flex-wrap: nowrap;
+    transition: transform .2s;
+}
+
+.AddStaff .Form .Page{
+    width:100%;
+    padding:35px;
+    height: 100%;
+    flex:1 0 auto;
+    position: relative;
+}
+
+.AddStaff .Form .Page .PageContent{
+    display: grid;
+    height: 400px;
+    grid-template-rows: 1fr 45px;
+}
+.AddStaff .Form .Page .PageHeader{
+    margin-bottom:10px;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.AddStaff .Form .Page .PageHeader h1{
+    font-weight: 400;
+}
+
+.AddStaff .Form .Page .PageHeader .Icon{
+    height:35px;
+    width:35px;
+    border-radius: 50%;
+}
+
+.AddStaff .Form .Page .PageHeader .Icon:hover{
+    background-color: #f8f5fd;
+}
+
+.AddStaff .Form .Page .PageHeader .Icon:hover i{
+    color: #6f52ed;
+}
+.AddStaff .Form .Page .Fields{
+    width:100%;
+    margin-top: 30px;
+   
+}
+
+.AddStaff .Form .Page .Fields .PhotoSelect{
+    position: relative;
+    width: 100%;
+}
+
+.AddStaff .Form .Page .Fields .PhotoSelect input{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.AddStaff .Form .Page .Fields .PhotoSelect .ToShow{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid #dadcde;
+}
+
+.AddStaff .Form .Page .Fields .PhotoSelect .ToShow p{
+    font-size: 1.25rem;
+}
+
+.AddStaff .Form .Page .Fields .PhotoSelect .ToShow i{
+}
+
+
+.AddStaff .Form .Page .Grid-2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap:30px;
+}
+
+.AddStaff .Form .Page .M-0{
+    margin: 0;
+}
+
+.AddStaff .Form .Page .Actions{
+    display: flex;
+    justify-content: space-between;
+}
+
+.AddStaff .Form .Page .PermissionActions{
+    display: flex;
+    margin-top: 60px;
+}
+
+.AddStaff .Form .Page .Actions .PageButton{
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 12px 10px;
+    margin-left: -12px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.AddStaff .Form .Page .Actions .PageButton:hover{
+    background-color: #f8fafb;
+}
+
+
+.AddStaff .Form .Page .Desc > p{
+    font-size: 1.3rem;
+    color: #615454;
+    width: 85%;
+    margin-top: 30px;
+}
+
+.AddStaff .Form .Page .Info{
+    background-color: rgb(255,250,237);
+    padding: 14px;
+    margin-top:30px;
+}
+
+.AddStaff .Form .Page .Info .InfoHeader{
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.AddStaff .Form .Page .Info .InfoHeader h3{
+    font-size: 1.35rem;
+    font-weight: 500;
+}
+
+.AddStaff .Form .Page .Info .InfoHeader i{
+    font-size: 20px;
+    color: #ffd568;
+}
+
+.AddStaff .Form .Page .Info .InfoDetails p{
+    font-size: 1.2rem;
+    line-height: 25px ;
+}
+
+.AddStaff .Form .Page .Info .InfoDetails b{
+    font-weight: 500;
+}
+
+.AddStaff .Form .Page .AddPermissions{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f6f8ff;
+    padding: 20px;
+}
+
+.AddStaff .Form .Page .AddPermissions .PermissionsContent{
+    margin-top: 40px;
+}
+
+.AddStaff .Form .Page .AddPermissions .NotificationWidget{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.AddStaff .Form .Page .AddPermissions .PermissionsContent .Suggestions{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.AddStaff .Form .Page .AddPermissions .PermissionsContent .Suggestions > p{
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.AddStaff .Form .Page .AddPermissions .PermissionsContent .Suggestions > div{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.AddStaff .Form .Page .AddPermissions .PermissionsContent .SelectedSubjects{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.AddStaff .Form .Page .AddPermissions .PermissionsContent .SelectedSubjects .TagContainer{
+    margin-right: 15px;
+    margin-bottom: 15px;
+    flex-shrink: 0;
+}
+.AddStaff .Form .Page .AddPermissions .PermissionsContent .Suggestions > div > .TagContainer{
+    margin-right: 15px;
+    margin-bottom: 15px;
+    flex-shrink: 0;
+}
+
+.AddStaff .Form .Page .AddPermissions .PermissionsContent .InputField input{
+    height: 60px;
+    font-size: 1.7rem !important;
+}
+
+.AddStaff .Form .Page .AddPermissions .PermissionsContent .InputField input:focus ~ div{
+    transform: scale(.75) translateY(-55px) !important;
+}
+
+.AddStaff .Form .Page .AddPermissions .PermissionsContent .InputField input[hasinput = true] ~ div{
+    transform: scale(.75) translateY(-55px);
+}
+
+.AddStaff .Form .Page .AddClasses {
+    margin-top: 20px;
+}
+.AddStaff .Form .Page .AddClasses h3{
+    font-size: 1.3rem;
+}
+.AddStaff .Form .Page .AddClasses > p{
+    font-size: 1.25rem;
+    margin-top: 10px;
+}
+
+.AddStaff .Form .Page .AddClasses .ClassSelection{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    flex-wrap: wrap;
+    margin-top: 0px;
+}
+
+.AddStaff .Form .Page .AddClasses .ClassSelection .Box {
+    margin-right: 20px;
+    flex-shrink: 0;
+    margin-top: 20px;
+}
+.AddStaff .Form .Page .AddClasses .ClassSelection .Box .Selectbox .CheckboxElement{
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.AddStaff .Form .Page .AddClasses .ClassSelection .Box .Selectbox .CheckboxElement i{
+    font-size: 17px !important;
+}
+.AddStaff .Form .Page .AddClasses .ClassSelection .Box .SelectBoxContent p{
+    font-size: 1.25rem;
+}
+
+.AddStaff .Form .Page .SavePermission{
+    margin-top: 30px;
+    display: flex;
+}
