@@ -5,14 +5,14 @@ const StyledPanel = styled.div`
     width:100%;
     overflow:hidden;
     display:grid;
-    grid-template-columns: 60px 1fr;
+    grid-template-columns: ${props=>props.showprofile ? '1fr 350px':'60px 1fr'};
     grid-template-rows: 60px 1fr;
 
     .NavigationPane{
         width: 100%;
-        grid-column: 2 / -1;
+        grid-column: ${props=>props.showprofile ? '1 / span 1':' 2 / -1'};
         background-color:${props=>props.theme.secondaryBg};
-        box-shadow: 4px -5px 10px #c3bebe;
+        box-shadow: -5px -5px 10px #c3bebe;
         z-index:10;
     }
 
@@ -20,13 +20,22 @@ const StyledPanel = styled.div`
         width: 100%;
         grid-column: 1 / span 1;
         grid-row: 1 / span 2;
-        background-color: ${props=>props.theme.tertiaryBg};;
+        background-color: ${props=>props.theme.tertiaryBg};
+        z-index:15;
     }
 
     .Main{
         width: 100%;
-        grid-column: 2 / -1;
+        grid-column: ${props=>props.showprofile ? '1 / span 1':' 2 / -1'};
         background-color:${props=>props.theme.primaryBg};;
+    }
+
+    .Profile{
+        width: 100%;
+        grid-column: 2 / -1;
+        grid-row: 1 / -1;
+        transition: all .3s;
+        z-index:30;
     }
 
 `;

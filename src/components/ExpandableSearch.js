@@ -1,13 +1,17 @@
 import React, { useState, useRef } from 'react';
 import StyledExpandableSearch from '../styled/StyledExpandableSearch';
 import Icon from './Icon';
+import { useOnClickOutside } from '../utils/customHooks';
 
 const ExpandableSearch = ({...props})=>{
     const [showInput,setShowInput] = useState(false);
     const inputRef = useRef();
+    const ref = useRef();
+
+    useOnClickOutside(ref,()=>setShowInput(false));
 
     return (
-        <StyledExpandableSearch showInput = {showInput}>
+        <StyledExpandableSearch ref = {ref} showInput = {showInput}>
             <input {...props} ref = {inputRef} type="text" className="Input"/>
             <button onClick = {()=> {
                 !showInput && setShowInput(true)

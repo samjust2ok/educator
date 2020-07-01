@@ -39,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
     .Scroll-Y{
         overflow-y:auto;
         overflow-x:hidden !important;
-        overflow: -moz-scrollbars-none; 
+        /* overflow: -moz-scrollbars-none;  */
         -ms-overflow-style: none;
         &::-webkit-scrollbar { 
             width:5px;
@@ -80,6 +80,7 @@ const GlobalStyle = createGlobalStyle`
             color:default;
         }
     }
+    
     .Flex-C{
         display:flex;
         align-items:center;
@@ -132,6 +133,23 @@ const GlobalStyle = createGlobalStyle`
     .Shadow{
         box-shadow:0px 2px 5px 0px #dad2d2;
     }
+
+    .Close{
+        height:35px;
+        width:35px;
+        border-radius: 50%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+
+    .Close:hover{
+        background-color: #f8f5fd;
+        i{
+            color: #6f52ed;
+        }
+    }
+
 `
 
 export default GlobalStyle;

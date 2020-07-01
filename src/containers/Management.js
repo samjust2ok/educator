@@ -2,9 +2,8 @@ import React from 'react';
 import StyledManagement, {StyledManagementNavigation, StyledManagementMain} from '../styled/StyledManagement';
 import { MANAGEMENT_DASHBOARD_ROUTE_ORDER, MANAGEMENT_DASHBOARD_ROUTES } from '../constants/dashboard';
 import NavigationCard from '../components/NavigationCard';
-import { DASHBOARD_ROUTES } from '../constants/dashboard';
 import ManageClasses from './ManageClasses';
-import ManageStaffs from '../containers/ManageStaffs';
+import ManageStaff from '../containers/ManageStaff';
 import ManageSubjects from './ManageSubjects';
 import ManageStudents from '../containers/ManageStudents';
 import {
@@ -19,7 +18,7 @@ const VALUES = [24,108,54,1012]
 const routes = [
     {
         path: MANAGEMENT_DASHBOARD_ROUTES.MANAGE_STAFF.path,
-        main: ManageStaffs
+        main: ManageStaff
     },
     {
         path: MANAGEMENT_DASHBOARD_ROUTES.MANAGE_STUDENTS.path,

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import StyledTable, { StyledTableRow } from '../styled/StyledTable';
 import Checkbox from './Checkbox';
 import Icon from './Icon';
+import pp from '../images/pp.png'
 
-const Table = ({data = [], allData =[], dataHeader, dataKeyOrder, selectedIds = [], handleSelection})=>{
+
+const Table = ({data = [], allData =[], dataHeader, dataKeyOrder, selectedIds = [], handleSelection,onSelectedProfile})=>{
     const handleRowClick = (selected,rowId)=>{
         handleSelection(selected,rowId)
     }
@@ -12,6 +14,7 @@ const Table = ({data = [], allData =[], dataHeader, dataKeyOrder, selectedIds = 
         const allIds = allData.map((value)=>value.id)
         handleSelection(selected,...allIds)
     }
+
     return  (
         <StyledTable>
             <table className="Table">
@@ -41,7 +44,7 @@ const Table = ({data = [], allData =[], dataHeader, dataKeyOrder, selectedIds = 
                 <tbody>
                     {
                         data.map((data,index)=>{
-                        return <TableRow onClick = {(selected,id)=>handleRowClick(selected,id)} selected = {selectedIds.includes(data.id)} key = {index} data = {data}/>
+                        return <TableRow onSelectedProfile = {onSelectedProfile} onCheck = {(selected,id)=>handleRowClick(selected,id)} selected = {selectedIds.includes(data.id)} key = {index} data = {data}/>
                         })
                     }
                 </tbody>
@@ -51,9 +54,10 @@ const Table = ({data = [], allData =[], dataHeader, dataKeyOrder, selectedIds = 
 }
 
 
-const TableRow = ({data, onClick, selected})=>{
-    const { firstName, lastName, id, phoneNumber, emailAddress} = data;
+const TableRow = ({data, onCheck, selected,onSelectedProfile})=>{
+    const { firstName, lastName, id, phoneNumber, emailAddress,profilePicture} = data;
     const [showActions,setShowActions] = useState(false);
+    
 
     const handleDelete = (e)=>{
         e.stopPropagation();
@@ -62,15 +66,21 @@ const TableRow = ({data, onClick, selected})=>{
     const handleEdit = (e)=>{
         e.stopPropagation();
     }
+
+    const handleOnSelected = (e)=>{
+        e.stopPropagation();
+        onSelectedProfile(data)
+    }
+
     return (
-        <StyledTableRow onMouseLeave = {()=>{
+        <StyledTableRow  onMouseLeave = {()=>{
             showActions && setShowActions(false)
         }} onMouseEnter = {()=>{
             !showActions && setShowActions(true)
-        }} selected = {selected} onClick = {()=>onClick(!selected,id)}>
+        }} selected = {selected} onClick = {handleOnSelected}>
             <td>
                 <div className="Checkbox Flex-C">
-                <Checkbox checked = {selected} onCheckChange = {(selected)=>onClick(selected,id)}/>
+                <Checkbox checked = {selected} onCheckChange = {(selected)=>onCheck(selected,id)}/>
                 </div>
             </td>
             <td>
@@ -79,7 +89,7 @@ const TableRow = ({data, onClick, selected})=>{
             <td>
                 <div className="Name">
                 <div className="ImageHolder M-R-10">
-                    <img src="" alt=""/>
+                    <img src={profilePicture || pp} alt=""/>
                 </div>
                 <p>{`${firstName} ${lastName}`}</p>
                 </div>

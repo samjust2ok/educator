@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Suspense } from 'react';
+import React, { useEffect, useState, Suspense, useContext } from 'react';
 import StyledManageStaff, { StyledManageStaffHeader, StyledManageStaffTab, StyledPagination } from '../styled/StyledManageStaff';
 import StyledCard from '../styled/StyledCard';
 import Button from '../components/Button';
@@ -7,24 +7,23 @@ import ExpandableSearch from '../components/ExpandableSearch';
 import Table from '../components/Table';
 import { STAFF_TABLE_ORDER, STAFF_HEADER, staff } from '../constants/table';
 import Pagination from '../components/Pagination';
-import { StyledPopup, StyledPopupContent } from '../styled/StyledPopup';
+import { PanelContext } from '../pages/Panel';
 const AddStaff = React.lazy(() => import('../components/AddStaff'));
 const PAGE = 10;
 
-function ManageStaffs(){
+function ManageStaff(){
     useEffect(()=>{
         document.title = "Manage Staffs"
     },[])
 
     let [selectedStaff,setSelectedStaff] = useState([]);
     let [currentData,setCurrentData] = useState(staff.slice(0,PAGE));
-
+    const { setSelectedProfile,setshowProfileSection, showProfileSection } = useContext(PanelContext);
     const [showAddStaff,setShowAddStaff] = useState(false);
 
     const handlePagination = (page)=>{
         let startIndex = (page-1) * PAGE;
         let data = staff.slice(startIndex,startIndex + PAGE);
-        console.log(currentData,data)
         setCurrentData([...data])
     }
 
@@ -47,6 +46,11 @@ function ManageStaffs(){
 
     const handleShowAddStaff = ()=>{
         setShowAddStaff(true);
+    }
+
+    const handleProfileSelected = (profile)=>{
+        setSelectedProfile(profile);
+        !showProfileSection && setshowProfileSection(true)
     }
 
     return (
@@ -74,7 +78,7 @@ function ManageStaffs(){
                 </StyledManageStaffHeader>
                 <StyledManageStaffTab>
                     <div className="TableContainer">
-                    <Table selectedIds = {selectedStaff} handleSelection = {handleSelection} allData = {staff} data = {currentData} dataHeader = {STAFF_HEADER} dataKeyOrder = {STAFF_TABLE_ORDER}/>
+                    <Table onSelectedProfile = {handleProfileSelected} selectedIds = {selectedStaff} handleSelection = {handleSelection} allData = {staff} data = {currentData} dataHeader = {STAFF_HEADER} dataKeyOrder = {STAFF_TABLE_ORDER}/>
                     </div>
                 </StyledManageStaffTab>
                 <StyledPagination>
@@ -93,4 +97,4 @@ function ManageStaffs(){
     )
 }
 
-export default ManageStaffs;
+export default ManageStaff;

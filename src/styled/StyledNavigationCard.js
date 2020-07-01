@@ -6,6 +6,9 @@ const StyledNavigationCard = styled.div`
     height: 100px;
     display:flex;
     align-items:center;
+    border: ${props=>`2px solid ${props.isActive ? props.color: 'transparent'}`};
+    border-radius:7px;
+    overflow:hidden;
 
     :hover{
         .Content{
@@ -16,6 +19,7 @@ const StyledNavigationCard = styled.div`
     & > .Content{
         transition: transform 200ms ease-in;
         transform-origin: left;
+        
         .Details{
             h3{
                 font-size: 1.3rem;

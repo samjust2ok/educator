@@ -18,9 +18,9 @@
     background-color: #1ed47c;
 }
 
-.Tag:hover{
+/* .Tag:hover{
     transform: translateY(5px);
-}
+} */
 .Tag[selector = true]:hover {
     background-color: #2b2d35;
 }

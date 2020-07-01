@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import StyledSelect from '../styled/StyledSelect';
 import Icon from './Icon';
+import { useOnClickOutside } from '../utils/customHooks';
+import { useRef } from 'react';
 
 
 const Select = ({handleChange,options = [], error = false,errorMessage,placeHolder})=>{
@@ -8,6 +10,7 @@ const Select = ({handleChange,options = [], error = false,errorMessage,placeHold
     const [selected,setSelected] = useState({
         display: ''
     });
+    const ref = useRef(null);
 
 
     const showOptions = ()=> setShowOpt(true);
@@ -26,9 +29,9 @@ const Select = ({handleChange,options = [], error = false,errorMessage,placeHold
         hideOptions();
     }
 
-
+    useOnClickOutside(ref, hideOptions)
     return (
-        <StyledSelect error = {error}>
+        <StyledSelect ref = {ref} error = {error}>
                 <div onClick = {handleOptionsVisibility} className="Selector">
                     <div focused = {`${showOpt}`} className = "SelectorDisplay">
                         <div optionselected = {`${!selected.display}`} className = 'PlaceHolder'>

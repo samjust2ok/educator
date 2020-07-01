@@ -73,10 +73,13 @@ const StyledTableRow = styled.tr`
                 border-radius:50%;
                 background-color: #f1f1f1;
                 overflow:hidden;
+                background-color: rgb(228,230,231);
 
                 img{
                     height:100%;
                     width:100%;
+                    object-position:0 3px;
+                    background-color: rgb(228,230,231);
                 }
             }
         }

@@ -11,7 +11,7 @@ const NavigationCard = ({to, icon, iconBackgroundColor, iconColor, text, value, 
             {
                 isActive =>
                     <StyledCard>
-                    <StyledNavigationCard isActive = {isActive}>
+                    <StyledNavigationCard color = {iconColor} isActive = {isActive}>
                         <div className = "Content Flex-C">
                             <RoundIcon icon = {icon} backgroundColor = {iconBackgroundColor} iconColor = {iconColor}/>
                             <div className = "Details M-L">
